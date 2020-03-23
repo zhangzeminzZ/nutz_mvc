@@ -25,7 +25,12 @@ public class Person {
     private String email;
     @Column
     private Date createDate;
-//    @Column(hump=true)
+    @Column
+    private Date updateDate;
+    @Column
+    private byte[] mb;
+    @Column
+    private String mbmz;
 
 
     public Integer getId() {
@@ -74,6 +79,30 @@ public class Person {
 
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
+    }
+
+    public Date getUpdateDate() {
+        return updateDate;
+    }
+
+    public void setUpdateDate(Date updateDate) {
+        this.updateDate = updateDate;
+    }
+
+    public byte[] getMb() {
+        return mb;
+    }
+
+    public void setMb(byte[] mb) {
+        this.mb = mb;
+    }
+
+    public String getMbmz() {
+        return mbmz;
+    }
+
+    public void setMbmz(String mbmz) {
+        this.mbmz = mbmz;
     }
 
     @Override
