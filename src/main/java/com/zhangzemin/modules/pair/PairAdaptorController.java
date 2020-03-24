@@ -1,6 +1,7 @@
 package com.zhangzemin.modules.pair;
 
 import com.zhangzemin.bean.Person;
+import com.zhangzemin.bean.Pet;
 import org.nutz.ioc.loader.annotation.IocBean;
 import org.nutz.mvc.annotation.At;
 import org.nutz.mvc.annotation.Ok;
@@ -49,6 +50,37 @@ public class PairAdaptorController {
     @At("/savePerson3")
     public void test3(@Param("::person.")Person person){
         System.err.println(person.toString());
+    }
+
+
+    @At("/test4")
+    @Ok("->:/modules/pair/test4.jsp")
+    public void test4(){
+
+    }
+
+
+    @At("/savePerson4")
+    public void test4(@Param("..")Person person, @Param("..")Pet pet){
+        System.err.println(person.toString());
+        System.err.println(pet.toString());
+    }
+
+
+    @At("/test5")
+    @Ok("->:/modules/pair/test5.jsp")
+    public void test5(){
+
+    }
+
+
+    @At("/savePerson5")
+    public void test5(@Param("person")Person person, @Param("pet")Pet pet,@Param("pets")Pet[] pets){
+        System.err.println(person.toString());
+        System.err.println(pet.toString());
+        for(int i = 0; i<pets.length; i++){
+            System.out.println(pets[i]);
+        }
     }
 
 }

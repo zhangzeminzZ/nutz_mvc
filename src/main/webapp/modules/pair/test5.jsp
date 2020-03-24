@@ -20,23 +20,23 @@
     <form>
         <div class="form-group">
             <label for="name">名字</label>
-            <input type="text" class="form-control" name="name" id="name" placeholder="输入名字">
+            <input type="text" class="form-control" id="name" placeholder="输入名字">
         </div>
         <div class="form-group">
             <label for="age">年龄</label>
-            <input type="text" class="form-control" name="age" id="age" placeholder="输入年龄">
+            <input type="text" class="form-control" id="age" placeholder="输入年龄">
         </div>
         <div class="form-group">
             <label for="email">电子邮件</label>
-            <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+            <input type="email" class="form-control" id="email" placeholder="Email">
         </div>
         <div class="form-group">
             <label for="color">颜色</label>
-            <input type="text" class="form-control" name="color" id="color" placeholder="输入颜色">
+            <input type="text" class="form-control" id="color" placeholder="输入颜色">
         </div>
         <div class="form-group">
             <label for="eat">吃饭</label>
-            <input type="text" class="form-control" name="eat" id="eat">
+            <input type="text" class="form-control" id="eat">
         </div>
         <button type="button" class="btn btn-success btn-add">保存</button>
     </form>
@@ -45,14 +45,36 @@
 <script>
     $(function(){
         $(".btn-add").on("click",function(){
+
+            var person = {
+                name:$("#name").val(),
+                age:$("#age").val(),
+                email:$("#email").val()
+            };
+
+            var pet = {
+                color:$("#color").val(),
+                eat:$("#eat").val()
+            };
+
+            var pets = [{
+                        color:$("#color").val(),
+                        eat:$("#eat").val()
+                        },
+                        {
+                        color:$("#color").val(),
+                        eat:$("#eat").val()
+                        }];
+
             $.ajax({
                 type:"get",
-                url:"savePerson4",
-                data:$("form").serialize(),
+                url:"savePerson5",
+                data:{person:JSON.stringify(person),pet:JSON.stringify(pet),pets:JSON.stringify(pets)},
                 success:function(){
 
                 }
             });
+
         });
     });
 </script>
